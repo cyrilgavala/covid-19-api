@@ -35,7 +35,26 @@ router.get('/positivePercentage', async (req, res) => {
             res.send(result);
         }
     });
+})
 
+router.get('/testsDaily', async (req, res) => {
+    console.log('%s INFO Recieved request for No. of tests series', new Date().toISOString())
+    DailyData.find({}, 'numberOfTests confirmed date -_id', (err, data) => {
+        if (err) res.status(500).send(err);
+        else {
+            let result = []
+            for (let i = 0; i < data.length - 1; i++) {
+                let current = data[i + 1]
+                let previous = data[i]
+                result.push({
+                    "tests": current.numberOfTests - previous.numberOfTests,
+                    "confirmed": current.confirmed - previous.confirmed,
+                    "date": current.date
+                })
+            }
+            res.send(result);
+        }
+    });
 })
 
 module.exports = router;

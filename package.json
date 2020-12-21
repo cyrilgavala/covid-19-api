@@ -1,6 +1,6 @@
 {
   "name": "covid-19-api",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Covid 19 API",
   "main": "index.js",
   "scripts": {
