@@ -1,0 +1,24 @@
+_id: req_wrk_a837b98aff304e8d9203341056cd5a9e4f303bbe
+type: Request
+parentId: fld_wrk_a837b98aff304e8d9203341056cd5a9ee350d5ce
+modified: 1608495149012
+created: 1608490466793
+url: "{{ base_url }}/stats/days"
+name: Find statistics since particular day
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: date
+    disabled: false
+    value: 2020-12-20T20:12:28.990Z
+headers: []
+authentication: {}
+metaSortKey: -1608490466793
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,14 @@
+_id: env_env_7a777d8ef604fbb96c50446253c305b44eee09d9_sub
+type: Environment
+parentId: env_7a777d8ef604fbb96c50446253c305b44eee09d9
+modified: 1608495149025
+created: 1608487560997
+name: OpenAPI env
+data:
+  scheme: https
+  base_path: ""
+  host: covid-19-api.herokuapp.com
+dataPropertyOrder: null
+color: null
+isPrivate: false
+metaSortKey: 1608487560997

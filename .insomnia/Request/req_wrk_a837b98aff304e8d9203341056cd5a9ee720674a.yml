@@ -1,0 +1,21 @@
+_id: req_wrk_a837b98aff304e8d9203341056cd5a9ee720674a
+type: Request
+parentId: fld_wrk_a837b98aff304e8d9203341056cd5a9e8c45d090
+modified: 1608495149006
+created: 1608491526589
+url: "{{ base_url }}/series/data"
+name: Get series of common data
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1608491526589
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,9 @@
+_id: wrk_a837b98aff304e8d9203341056cd5a9e
+type: Workspace
+parentId: null
+modified: 1608495149033
+created: 1608487540834
+name: Covid-19-API 1.0.0
+description: This is a documentation for
+  [covid-19-api](https://github.com/cyrilgavala/covid-19-api).
+scope: spec

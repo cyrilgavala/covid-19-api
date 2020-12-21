@@ -1,0 +1,214 @@
+_id: spc_8b6173fdb4d547b79a7fe1d494155325
+type: ApiSpec
+parentId: wrk_a837b98aff304e8d9203341056cd5a9e
+modified: 1608574449877
+created: 1608487540835
+fileName: Covid-19-api
+contents: >-
+  openapi: 3.0.0
+
+  info:
+    description: "This is a documentation for [covid-19-api](https://github.com/cyrilgavala/covid-19-api)."
+    version: 3.0.0
+    title: Covid-19-API
+    contact:
+      email: cyril.gavala@gmail.com
+    license:
+      name: MIT licence
+      url: https://github.com/cyrilgavala/covid-19-api/blob/main/LICENSE
+  tags:
+    - name: stats
+      description: Basic Covid-19 data statistics
+    - name: series
+      description: Various series of Covid-19 data
+  paths:
+    /stats/day:
+      get:
+        tags:
+          - stats
+        summary: Find statistics for particular day
+        parameters:
+          - name: date
+            in: query
+            description: Day which data are requested for
+            required: true
+            explode: true
+            schema:
+              type: string
+        responses:
+          "200":
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/DailyData"
+          "400":
+            description: Missing day parameter
+          "500":
+            description: Internal server error
+    /stats/days:
+      get:
+        tags:
+          - stats
+        summary: Find statistics since particular day
+        parameters:
+          - name: date
+            in: query
+            description: Day which data are requested for
+            required: true
+            explode: true
+            schema:
+              type: string
+              format: date-time
+        responses:
+          "200":
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/DailyData"
+          "400":
+            description: Missing day parameter
+          "500":
+            description: Internal server error
+    /series/data:
+      get:
+        tags:
+          - series
+        summary: Get series of common data
+        responses:
+          "200":
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/CommonDataSeries"
+          "500":
+            description: Internal server error
+    /series/deaths:
+      get:
+        tags:
+          - series
+        summary: Get series of deaths data
+        responses:
+          "200":
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/DeathsSeries"
+          "500":
+            description: Internal server error
+    /series/positivePercentage:
+      get:
+        tags:
+          - series
+        summary: Get series of positive percentage data
+        responses:
+          "200":
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/PercentageSeries"
+          "500":
+            description: Internal server error
+    /series/testsDaily:
+      get:
+        tags:
+          - series
+        summary: Get series of daily tests data
+        responses:
+          "200":
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/DailyTestsSeries"
+          "500":
+            description: Internal server error
+  externalDocs:
+    description: Find out more about Swagger
+    url: http://swagger.io
+  servers:
+    - url: https://covid-19-api.herokuapp.com/
+  components:
+    schemas:
+      DailyData:
+        type: object
+        properties:
+          date:
+            type: string
+            format: date-time
+          active:
+            type: number
+            format: int64
+          confirmed:
+            type: number
+            format: int64
+          deaths:
+            type: number
+            format: int64
+          numberOfTests:
+            type: number
+            format: int64
+          recovered:
+            type: number
+            format: int64
+      CommonDataSeries:
+        type: object
+        properties:
+          confirmed:
+            type: number
+            format: int64
+          active:
+            type: number
+            format: int64
+          recovered:
+            type: number
+            format: int64
+          date:
+            type: string
+            format: date-time
+      DeathsSeries:
+        type: object
+        properties:
+          deaths:
+            type: number
+            format: int64
+          date:
+            type: string
+            format: date-time
+      PercentageSeries:
+        type: object
+        properties:
+          percentage:
+            type: number
+            format: int64
+          date:
+            type: string
+            format: date-time
+      DailyTestsSeries:
+        type: object
+        properties:
+          tests:
+            type: number
+            format: int64
+          confirmed:
+            type: number
+            format: int64
+          date:
+            type: string
+            format: date-time
+contentType: yaml

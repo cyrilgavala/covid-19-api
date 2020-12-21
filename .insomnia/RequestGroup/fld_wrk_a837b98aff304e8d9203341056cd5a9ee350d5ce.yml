@@ -1,0 +1,10 @@
+_id: fld_wrk_a837b98aff304e8d9203341056cd5a9ee350d5ce
+type: RequestGroup
+parentId: wrk_a837b98aff304e8d9203341056cd5a9e
+modified: 1608495149022
+created: 1608490466805
+name: stats
+description: Basic Covid-19 data statistics
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1608490466805
