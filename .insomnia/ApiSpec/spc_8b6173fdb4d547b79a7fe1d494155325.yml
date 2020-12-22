@@ -1,7 +1,7 @@
 _id: spc_8b6173fdb4d547b79a7fe1d494155325
 type: ApiSpec
 parentId: wrk_a837b98aff304e8d9203341056cd5a9e
-modified: 1608574449877
+modified: 1608638162251
 created: 1608487540835
 fileName: Covid-19-api
 contents: >-
@@ -138,6 +138,22 @@ contents: >-
                     $ref: "#/components/schemas/DailyTestsSeries"
           "500":
             description: Internal server error
+    /series/deathsDaily:
+      get:
+        tags:
+          - series
+        summary: Get series of daily deaths data
+        responses:
+          "200":
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/DailyDeathsSeries"
+          "500":
+            description: Internal server error
   externalDocs:
     description: Find out more about Swagger
     url: http://swagger.io
@@ -206,6 +222,15 @@ contents: >-
             type: number
             format: int64
           confirmed:
+            type: number
+            format: int64
+          date:
+            type: string
+            format: date-time
+      DailyDeathsSeries:
+        type: object
+        properties:
+          deaths:
             type: number
             format: int64
           date:
