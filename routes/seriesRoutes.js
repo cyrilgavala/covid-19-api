@@ -27,8 +27,10 @@ router.get('/positivePercentage', async (req, res) => {
             for (let i = 0; i < data.length - 1; i++) {
                 let current = data[i + 1]
                 let previous = data[i]
+                let percentage = (current.numberOfTests - previous.numberOfTests) > 0 ?
+                    ((current.confirmed - previous.confirmed) / (current.numberOfTests - previous.numberOfTests) * 100).toFixed(2) : 0;
                 result.push({
-                    "percentage": ((current.confirmed - previous.confirmed) / (current.numberOfTests - previous.numberOfTests) * 100).toFixed(2),
+                    "percentage": percentage,
                     "date": current.date
                 })
             }
