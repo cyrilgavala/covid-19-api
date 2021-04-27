@@ -1,10 +1,13 @@
 {
   "name": "covid-19-api",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Covid 19 API",
+  "author": "Cyril Gavala",
+  "license": "MIT",
+  "homepage": "https://github.com/cyrilgavala/examples/covid-19-api#readme",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo 'No tests'",
     "start": "node index.js"
   },
   "keywords": [
@@ -13,13 +16,9 @@
     "Express",
     "MongoDB"
   ],
-  "author": "Cyril Gavala",
-  "license": "MIT",
-  "homepage": "https://github.com/cyrilgavala/examples/covid-19-api#readme",
-  "devDependencies": {},
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.12.1"
+    "mongoose": "^5.12.5"
   }
 }
