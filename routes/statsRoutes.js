@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const DailyData = require('../models/dailyData')
+const DailyData = require('../database/models/dailyData')
 
 router.get('/day', async (req, res) => {
 	console.log("%s INFO Received get daily data request for %s", new Date().toISOString(), req.query.date);

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const DailyData = require('../models/dailyData')
+const DailyData = require('../database/models/dailyData')
 
 /** @namespace req.query.startDate **/
 
@@ -13,7 +13,7 @@ function buildQueryFilter(startDate) {
 }
 
 router.get('/deaths', async (req, res) => {
-	console.log('%s INFO Received request for deaths series from %s', new Date().toISOString(), req.query.startDate)
+	console.log('%s INFO Received request for deaths series%s', new Date().toISOString(), req.query.startDate !== undefined ? ' from ' + req.query.startDate : '')
 	DailyData.find(buildQueryFilter(req.query.startDate), 'deaths date -_id', (err, data) => {
 		if (err) res.status(500).send(err);
 		else res.send(data);
@@ -21,7 +21,7 @@ router.get('/deaths', async (req, res) => {
 })
 
 router.get('/positivePercentage', async (req, res) => {
-	console.log('%s INFO Received request for positive percentage series from %s', new Date().toISOString(), req.query.startDate)
+	console.log('%s INFO Received request for positive percentage series%s', new Date().toISOString(), req.query.startDate !== undefined ? ' from ' + req.query.startDate : '')
 	DailyData.find(buildQueryFilter(req.query.startDate), 'numberOfTests confirmed date -_id', (err, data) => {
 		if (err) res.status(500).send(err);
 		else {
@@ -42,7 +42,7 @@ router.get('/positivePercentage', async (req, res) => {
 })
 
 router.get('/testsDaily', async (req, res) => {
-	console.log('%s INFO Received request for daily tests series from %s', new Date().toISOString(), req.query.startDate)
+	console.log('%s INFO Received request for daily test series%s', new Date().toISOString(), req.query.startDate !== undefined ? ' from ' + req.query.startDate : '')
 	DailyData.find(buildQueryFilter(req.query.startDate), 'numberOfTests confirmed date -_id', (err, data) => {
 		if (err) res.status(500).send(err);
 		else {
@@ -62,7 +62,7 @@ router.get('/testsDaily', async (req, res) => {
 })
 
 router.get('/deathsDaily', async (req, res) => {
-	console.log('%s INFO Received request for daily deaths series from %s', new Date().toISOString(), req.query.startDate)
+	console.log('%s INFO Received request for daily deaths series%s', new Date().toISOString(), req.query.startDate !== undefined ? ' from ' + req.query.startDate : '')
 	DailyData.find(buildQueryFilter(req.query.startDate), 'deaths date -_id', (err, data) => {
 		if (err) res.status(500).send(err);
 		else {

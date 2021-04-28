@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   description: "This is a documentation for [covid-19-api](https://github.com/cyrilgavala/covid-19-api)."
-  version: 4.0.0
+  version: 5.1.0
   title: Covid-19-API
   contact:
     email: cyril.gavala@gmail.com
@@ -99,7 +99,7 @@ paths:
     get:
       tags:
         - series
-      summary: Get series of daily tests data
+      summary: Get series of daily test data
       parameters:
         - name: startDate
           in: query
