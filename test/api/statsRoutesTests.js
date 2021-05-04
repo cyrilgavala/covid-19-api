@@ -13,16 +13,7 @@ describe('GET /stats/day', () => {
 		conn.disconnect().then(() => done()).catch((err) => done(err));
 	})
 
-	it('OK, getting data for day not in db', (done) => {
-		request(app).get('/stats/day').query({date: '2020-01-01T00:00:00.000Z'}).then((res) => {
-			const body = res.body;
-			expect(res.status).to.equals(200);
-			expect(body).to.deep.equal({});
-			done();
-		}).catch((err) => done(err));
-	});
-
-	it('OK, getting data for day in db', (done) => {
+	it('200, getting data for day in db', (done) => {
 		request(app).get('/stats/day').query({date: '2021-01-01T00:00:00.000Z'}).then((res) => {
 			const body = res.body;
 			expect(res.status).to.equals(200);
@@ -34,7 +25,16 @@ describe('GET /stats/day', () => {
 		}).catch((err) => done(err))
 	});
 
-	it('FAIL, getting data with date parameter', (done) => {
+	it('200, getting data for day not in db', (done) => {
+		request(app).get('/stats/day').query({date: '2020-01-01T00:00:00.000Z'}).then((res) => {
+			const body = res.body;
+			expect(res.status).to.equals(200);
+			expect(body).to.deep.equal({});
+			done();
+		}).catch((err) => done(err));
+	});
+
+	it('400, getting data without date parameter', (done) => {
 		request(app).get('/stats/day').then((res) => {
 			const body = res.body;
 			expect(res.status).to.equals(400);

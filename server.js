@@ -7,4 +7,4 @@ dbConnector.connect().then(() => {
 	app.listen(PORT, () => {
 		console.log('Listening on port: ' + PORT);
 	});
-});
+}).catch(err => console.error(err));

@@ -1,7 +1,8 @@
 const properties = {
 	dbProperties: {
 		useNewUrlParser: true,
-		useUnifiedTopology: true
+		useUnifiedTopology: true,
+		poolSize: 50
 	}
 }
 
